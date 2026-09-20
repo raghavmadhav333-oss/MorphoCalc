@@ -1,59 +1,66 @@
-# Morpho-Computational Calculus (MCC)
-**Physics-Informed Autonomous Reasoning Core (PARC)**
+# 🌊 MorphoCalc 
 
+> **A Morpho-Computational Calculus framework to simplify and accelerate complex fluid dynamics and Navier-Stokes equations.**
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-orange)
+![Stars](https://img.shields.io/github/stars/raghav/MorphoCalc?style=social)
 
 ## Overview
 
-The **Morpho-Computational Calculus (MCC)** framework and its core engine, **PARC**, provide a state-of-the-art **Real-Time Neural Surrogate** for modeling chaotic fluid dynamics. 
+For 200 years, the Navier-Stokes equations have presented an insurmountable mathematical challenge, forcing physicists to rely on computationally expensive $O(N^3)$ numerical integration (supercomputers) to simulate chaos, weather, and hemodynamics. 
 
-For 200 years, the Navier-Stokes equations have presented an insurmountable mathematical challenge, forcing physicists to rely on computationally expensive $O(N^3)$ numerical integration (via supercomputers) to simulate chaotic turbulence, weather patterns, and hemodynamics. 
+**MorphoCalc bypasses traditional numerical integration entirely.** By leveraging a Physics-Informed Neural Network (PINN) built on the SIREN architecture, MorphoCalc maps complex boundary conditions and chaotic physical laws into a continuous 4D neural manifold. Once trained, the network acts as a highly optimized surrogate solver, predicting fluid dynamics in $O(1)$ time complexity (milliseconds).
 
-**PARC bypasses traditional numerical integration entirely.** By leveraging a Physics-Informed Neural Network (PINN) built on the SIREN (Sinusoidal Representation Network) architecture, PARC maps complex boundary conditions and chaotic physical laws into a continuous 4D neural manifold. Once trained, the neural network acts as a highly optimized surrogate solver, predicting fluid dynamics in $O(1)$ time complexity (milliseconds).
+## 🧠 Architecture: How it Works
 
-### Why Neural Surrogates?
-*Traditional symbolic regression models frequently fit patterns to coordinate clouds that produce severe mathematical contradictions when tested directly against the actual differential equations.* 
-
-Matching known data points is not the same as discovering new exact physics. Acknowledging this fundamental mathematical limit, MCC abandons the pursuit of simple algebraic curve-fitting. Instead, the Neural Network *is* the mathematics. PARC functions as a standalone, ultra-fast computational engine capable of replacing supercomputers in time-critical scenarios.
+```mermaid
+graph TD
+    A[Raw Chaotic Fluid Data] -->|Input| B(MorphoCalc Engine)
+    B --> C{Physics-Informed Loss}
+    C -->|Beltrami Flow| D[Navier-Stokes Balances]
+    C -->|Lorenz Attractor| E[Volume Contraction]
+    C -->|Aneurysm Shear| F[Radial Invariants]
+    D --> G((4D Neural Manifold))
+    E --> G
+    F --> G
+    G -->|O 1 Inference| H[Real-Time Fluid Prediction]
+    
+    style B fill:#f9f,stroke:#333,stroke-width:4px
+    style G fill:#bbf,stroke:#333,stroke-width:4px
+```
 
 ## Core Capabilities
-- **Real-Time Meteorology:** Predict chaotic atmospheric shifts (Hurricane Lorenz Attractors) instantly, without supercomputer latency.
-- **Biomedical Fluid Dynamics:** Calculate pulsating shear stress and radial boundary conservation in arterial aneurysms in real-time, enabling instant diagnostic tools on consumer hardware.
+- **Real-Time Meteorology:** Predict chaotic atmospheric shifts instantly, without supercomputer latency.
+- **Biomedical Fluid Dynamics:** Calculate pulsating shear stress in arterial aneurysms in real-time, enabling instant diagnostic tools on consumer hardware.
 - **Topological Turbulence:** Model exact Beltrami flow cancellations (ABC flows) via neural manifolds.
 
 ## Installation
 
-You can install the `morpho_calculus` package directly using pip:
-
 ```bash
-git clone https://github.com/raghav/morpho_calculus.git
-cd morpho_calculus
+git clone https://github.com/raghav/MorphoCalc.git
+cd MorphoCalc
 pip install -e .
 ```
 
 ## Usage
 
-### Generating the Neural Manifold (Dataset Engine)
-To train the SIREN network and map the topological geometry of the ABC flow, Lorenz Attractor, and Aneurysm shear:
-
+### 1. Generating the Neural Manifold
+Train the SIREN network and map the topological geometry of chaotic flows:
 ```bash
-morpho-engine
-```
-*This will generate the 4D coordinate dataset and evaluate the physics loss function.*
-
-### Decoding and Validation (Symbolic Decoder)
-To analyze the generated coordinate clouds and output the conserved geometric invariants:
-
-```bash
-morpho-decoder
+morphocalc-engine
 ```
 
-## Architecture
+### 2. Decoding Geometric Invariants
+Analyze the generated coordinate clouds and output the conserved geometric laws:
+```bash
+morphocalc-decoder
+```
 
-1. **`dataset_engine.py`**: Contains the `SIREN_RepNet4D` PyTorch model and the `PhysicsRegistry3D`. It uses differential equations as boundary constraints to train the neural manifold.
-2. **`symbolic_decoder.py`**: Validates the output of the SIREN network against exact physical invariants (e.g., Beltrami Field cancellations and Phase Space Volume Contractions).
+---
 
-## License
-MIT License. See `LICENSE` for more information.
+### 👨‍💻 About the Author
+**MorphoCalc was independently developed and engineered by a high school student.** 
+This project was built to demonstrate that the future of computational physics does not belong to massive supercomputers, but to efficient, intelligent neural surrogate architectures. If you find this repository useful, please consider giving it a ⭐!
