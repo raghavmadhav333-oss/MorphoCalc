@@ -36,7 +36,7 @@ sequenceDiagram
 
 ## 📊 Validation & Accuracy (Supercomputer Benchmarking)
 To verify that MorphoCalc is not just a statistical approximation but a true physics-informed solver, we benchmarked the neural manifold against traditional numerical integration (e.g., OpenFOAM). 
-- **Performance:** Successfully converged to a near-zero geometric variance loss ($\mathcal{L} \approx 0$) on complex chaotic boundaries, indicating strong topological fidelity.
+- **Performance:** "After 500 epochs, the SIREN PINN converged to a geometric variance loss of approximately 0.06, indicating a strong match to the baseline representation under our defined metric."
 - **Computational Speedup:** Realized a **100x acceleration ($O(1)$ inference)** compared to traditional $O(N^3)$ computational fluid dynamics constraints.
 
 > **Research Disclaimer:** Our research demonstrates that this neural surrogate approach is theoretically possible and mathematically sound, building upon existing continuous formulations. While our current model was only trained for roughly 30 minutes—which is not enough for absolute perfection—it serves as a powerful proof of concept. With more extensive training and scaling, this architecture can achieve highly robust and extremely accurate results in the future.
